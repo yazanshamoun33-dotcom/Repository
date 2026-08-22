@@ -1,5 +1,5 @@
 (() => {
-  const endpoint = 'https://bepdhsykvcknbtkcotzs.supabase.co/functions/v1/ask-yazan';
+  const endpoint = 'https://bepdhsykvcknbtkcotzs.supabase.co/functions/v1/Ask-yazan';
   const history = [];
 
   const style = document.createElement('style');
