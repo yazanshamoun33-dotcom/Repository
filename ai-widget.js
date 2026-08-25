@@ -80,25 +80,25 @@
 })();
 
 (() => {
-  const addDcpImage = () => {
+  const addDcpProjectLink = () => {
     const cards = [...document.querySelectorAll('#projects .card')];
     const dcpCard = cards.find(card => card.querySelector('h3')?.textContent?.includes('Qiddiya District Cooling Plant'));
-    if (!dcpCard || dcpCard.querySelector('.dcp-project-image')) return;
+    if (!dcpCard || dcpCard.querySelector('a[href="dcp.html"]')) return;
 
-    const img = document.createElement('img');
-    img.className = 'dcp-project-image';
-    img.src = 'assets/dcp/qiddiya-dcp-bim-model.png';
-    img.alt = 'Qiddiya District Cooling Plant BIM model coordination view';
-    img.loading = 'lazy';
-    img.style.cssText = 'width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#e9ecef;border:1px solid #2a323b;border-radius:14px;margin:18px 0 2px;display:block;';
+    const link = document.createElement('a');
+    link.className = 'btn';
+    link.href = 'dcp.html';
+    link.textContent = 'View Project →';
+    link.style.cssText = 'margin-top:16px;align-self:flex-start';
 
-    const title = dcpCard.querySelector('h3');
-    dcpCard.insertBefore(img, title);
+    const facts = dcpCard.querySelector('.facts');
+    if (facts) dcpCard.insertBefore(link, facts);
+    else dcpCard.appendChild(link);
   };
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', addDcpImage, { once: true });
+    document.addEventListener('DOMContentLoaded', addDcpProjectLink, { once: true });
   } else {
-    addDcpImage();
+    addDcpProjectLink();
   }
 })();
