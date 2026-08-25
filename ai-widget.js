@@ -78,3 +78,27 @@
   form.addEventListener('submit', e => { e.preventDefault(); ask(input.value); });
   panel.querySelectorAll('.yazan-ai-quick button').forEach(b => b.addEventListener('click', () => ask(b.textContent)));
 })();
+
+(() => {
+  const addDcpImage = () => {
+    const cards = [...document.querySelectorAll('#projects .card')];
+    const dcpCard = cards.find(card => card.querySelector('h3')?.textContent?.includes('Qiddiya District Cooling Plant'));
+    if (!dcpCard || dcpCard.querySelector('.dcp-project-image')) return;
+
+    const img = document.createElement('img');
+    img.className = 'dcp-project-image';
+    img.src = 'assets/dcp/qiddiya-dcp-bim-model.png';
+    img.alt = 'Qiddiya District Cooling Plant BIM model coordination view';
+    img.loading = 'lazy';
+    img.style.cssText = 'width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#e9ecef;border:1px solid #2a323b;border-radius:14px;margin:18px 0 2px;display:block;';
+
+    const title = dcpCard.querySelector('h3');
+    dcpCard.insertBefore(img, title);
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', addDcpImage, { once: true });
+  } else {
+    addDcpImage();
+  }
+})();
