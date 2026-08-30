@@ -102,3 +102,9 @@
     addDcpProjectLink();
   }
 })();
+
+(() => {
+  if (location.hostname !== 'yazanshamoun33-dotcom.github.io') return;
+  const pixel = new Image();
+  pixel.src = 'https://counterapi.com/pixel.gif?ns=yazanshamoun33-dotcom.github.io&action=portfolioView&key=home';
+})();
