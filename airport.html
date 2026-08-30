@@ -53,8 +53,5 @@ Your browser does not support HTML5 video.
 <script>
 const box=document.getElementById('lightbox'),img=document.getElementById('lightbox-img');document.querySelectorAll('.shot').forEach(s=>s.addEventListener('click',()=>{img.src=s.dataset.src;box.classList.add('open');box.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}));function closeBox(){box.classList.remove('open');box.setAttribute('aria-hidden','true');document.body.style.overflow='';img.src=''}document.getElementById('close').addEventListener('click',closeBox);box.addEventListener('click',e=>{if(e.target===box)closeBox()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBox()});
 </script>
-<script>
-if(location.hostname==='yazanshamoun33-dotcom.github.io'){const p=new Image();p.src='https://counterapi.com/pixel.gif?ns=yazanshamoun33-dotcom.github.io&action=portfolioView&key=airport';}
-</script>
 </body>
 </html>
